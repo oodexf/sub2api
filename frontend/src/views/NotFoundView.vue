@@ -5,74 +5,42 @@
     <!-- Background Decoration -->
     <div class="pointer-events-none absolute inset-0 overflow-hidden">
       <div
-        class="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-primary-400/10 blur-3xl"
+        class="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-primary-500/10 blur-3xl"
       ></div>
       <div
-        class="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-primary-500/10 blur-3xl"
+        class="absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-primary-600/10 blur-3xl"
+      ></div>
+      <div
+        class="absolute inset-0 bg-[linear-gradient(rgba(95,102,245,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(95,102,245,0.04)_1px,transparent_1px)] bg-[size:64px_64px]"
       ></div>
     </div>
 
-    <div class="relative z-10 w-full max-w-md text-center">
+    <div class="relative z-10 w-full max-w-lg text-center">
       <!-- 404 Display -->
-      <div class="mb-8">
-        <div class="relative inline-block">
-          <span class="text-[12rem] font-bold leading-none text-gray-100 dark:text-dark-800"
-            >404</span
-          >
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div
-              class="flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-primary-600 shadow-lg shadow-primary-500/30"
-            >
-              <svg
-                class="h-12 w-12 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+      <p class="mb-2 font-mono text-xs uppercase tracking-[0.35em] text-primary-500">
+        {{ t('errors.pageNotFound') }}
+      </p>
+      <h1
+        class="not-found-figure select-none font-display text-[clamp(8rem,24vw,14rem)] font-bold leading-none tracking-tight"
+      >
+        404
+      </h1>
 
-      <!-- Text Content -->
-      <div class="mb-8">
-        <h1 class="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
-          {{ t('errors.pageNotFound') }}
-        </h1>
-        <p class="text-gray-500 dark:text-dark-400">
-          The page you are looking for doesn't exist or has been moved.
-        </p>
-      </div>
+      <p class="mx-auto mb-10 mt-4 max-w-sm text-gray-500 dark:text-dark-400">
+        {{ t('errors.pageNotFoundDesc') }}
+      </p>
 
       <!-- Action Buttons -->
       <div class="flex flex-col justify-center gap-3 sm:flex-row">
         <button @click="goBack" class="btn btn-secondary">
-          <Icon name="arrowLeft" size="md" class="mr-2" />
-          Go Back
+          <Icon name="arrowLeft" size="sm" />
+          {{ t('errors.goBack') }}
         </button>
         <router-link to="/dashboard" class="btn btn-primary">
-          <Icon name="home" size="md" class="mr-2" />
-          Go to Dashboard
+          <Icon name="home" size="sm" />
+          {{ t('errors.goHome') }}
         </router-link>
       </div>
-
-      <!-- Help Link -->
-      <p class="mt-8 text-sm text-gray-400 dark:text-dark-500">
-        Need help?
-        <a
-          href="#"
-          class="text-primary-600 transition-colors hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300"
-        >
-          Contact support
-        </a>
-      </p>
     </div>
   </div>
 </template>
@@ -89,3 +57,14 @@ function goBack(): void {
   router.back()
 }
 </script>
+
+<style scoped>
+.not-found-figure {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(95, 102, 245, 0.35);
+}
+
+.dark .not-found-figure {
+  -webkit-text-stroke-color: rgba(131, 145, 251, 0.4);
+}
+</style>

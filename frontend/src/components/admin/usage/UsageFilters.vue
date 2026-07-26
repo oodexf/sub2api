@@ -22,7 +22,7 @@
             class="absolute right-2 top-9 text-gray-400"
             aria-label="Clear user filter"
           >
-            ✕
+            <Icon name="x" size="xs" />
           </button>
           <div
             v-if="showUserDropdown && (userResults.length > 0 || userKeyword)"
@@ -59,7 +59,7 @@
             class="absolute right-2 top-9 text-gray-400"
             aria-label="Clear API key filter"
           >
-            ✕
+            <Icon name="x" size="xs" />
           </button>
           <div
             v-if="showApiKeyDropdown && apiKeyResults.length > 0"
@@ -102,7 +102,7 @@
             class="absolute right-2 top-9 text-gray-400"
             aria-label="Clear account filter"
           >
-            ✕
+            <Icon name="x" size="xs" />
           </button>
           <div
             v-if="showAccountDropdown && (accountResults.length > 0 || accountKeyword)"
@@ -191,6 +191,7 @@
 import { ref, onMounted, onUnmounted, toRef, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { adminAPI } from '@/api/admin'
+import Icon from '@/components/icons/Icon.vue'
 import Select, { type SelectOption } from '@/components/common/Select.vue'
 import { COMMON_ERROR_STATUS_CODES } from '@/utils/errorBadges'
 import type { SimpleApiKey, SimpleUser } from '@/api/admin/usage'

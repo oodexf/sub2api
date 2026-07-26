@@ -76,7 +76,7 @@ describe('AccountStatusIndicator', () => {
     expect(wrapper.text()).not.toContain('admin.accounts.status.tempUnschedulable')
   })
 
-  it('模型限流 + overages 启用 + 无 AICredits key → 显示 ⚡ (credits_active)', () => {
+  it('模型限流 + overages 启用 + 无 AICredits key → 显示 bolt 图标 (credits_active)', () => {
     const wrapper = mount(AccountStatusIndicator, {
       props: {
         account: makeAccount({
@@ -100,11 +100,11 @@ describe('AccountStatusIndicator', () => {
       }
     })
 
-    expect(wrapper.text()).toContain('⚡')
+    expect(wrapper.find('[data-testid="credits-active-icon"]').exists()).toBe(true)
     expect(wrapper.text()).toContain('CSon45')
   })
 
-  it('模型限流 + overages 未启用 → 普通限流样式（无 ⚡）', () => {
+  it('模型限流 + overages 未启用 → 普通限流样式（无 bolt 图标）', () => {
     const wrapper = mount(AccountStatusIndicator, {
       props: {
         account: makeAccount({
@@ -128,7 +128,7 @@ describe('AccountStatusIndicator', () => {
     })
 
     expect(wrapper.text()).toContain('CSon45')
-    expect(wrapper.text()).not.toContain('⚡')
+    expect(wrapper.find('[data-testid="credits-active-icon"]').exists()).toBe(false)
   })
 
   it('AICredits key 生效 → 显示积分已用尽 (credits_exhausted)', () => {
@@ -158,7 +158,7 @@ describe('AccountStatusIndicator', () => {
     expect(wrapper.text()).toContain('admin.accounts.status.creditsExhausted')
   })
 
-  it('模型限流 + overages 启用 + AICredits key 生效 → 普通限流样式（积分耗尽，无 ⚡）', () => {
+  it('模型限流 + overages 启用 + AICredits key 生效 → 普通限流样式（积分耗尽，无 bolt 图标）', () => {
     const wrapper = mount(AccountStatusIndicator, {
       props: {
         account: makeAccount({
@@ -186,9 +186,9 @@ describe('AccountStatusIndicator', () => {
       }
     })
 
-    // 模型限流 + 积分耗尽 → 不应显示 ⚡
+    // 模型限流 + 积分耗尽 → 不应显示 bolt 图标
     expect(wrapper.text()).toContain('CSon45')
-    expect(wrapper.text()).not.toContain('⚡')
+    expect(wrapper.find('[data-testid="credits-active-icon"]').exists()).toBe(false)
     // AICredits 积分耗尽状态应显示
     expect(wrapper.text()).toContain('admin.accounts.status.creditsExhausted')
   })

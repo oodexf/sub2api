@@ -6,6 +6,8 @@ export default {
   // Home Page
   home: {
     viewOnGithub: 'View on GitHub',
+    eyebrow: 'AI API Gateway',
+    scrollHint: 'Scroll to explore',
     viewDocs: 'View Documentation',
     docs: 'Docs',
     switchToLight: 'Switch to Light Mode',
@@ -97,6 +99,7 @@ export default {
       title: 'Supported AI Models',
       description: 'One API, Multiple Choices',
       supported: 'Supported',
+      gpt: 'GPT',
       soon: 'Soon',
       claude: 'Claude',
       gemini: 'Gemini',

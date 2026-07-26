@@ -6,6 +6,8 @@ export default {
   // Home Page
   home: {
     viewOnGithub: '在 GitHub 上查看',
+    eyebrow: 'AI API 网关',
+    scrollHint: '向下滚动探索',
     viewDocs: '查看文档',
     docs: '文档',
     switchToLight: '切换到浅色模式',
@@ -97,6 +99,7 @@ export default {
       title: '已支持的 AI 模型',
       description: '一个 API，多种选择',
       supported: '已支持',
+      gpt: 'GPT',
       soon: '即将推出',
       claude: 'Claude',
       gemini: 'Gemini',

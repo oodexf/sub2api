@@ -811,6 +811,9 @@ export default {
   errors: {
     somethingWentWrong: 'Something went wrong',
     pageNotFound: 'Page not found',
+    pageNotFoundDesc: "The page you are looking for doesn't exist or has been moved.",
+    goBack: 'Go Back',
+    goHome: 'Go to Dashboard',
     unauthorized: 'Unauthorized',
     forbidden: 'Forbidden',
     serverError: 'Server error',

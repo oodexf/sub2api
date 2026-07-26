@@ -323,12 +323,14 @@
           color="amber"
         />
 
-        <div v-if="aiCreditsDisplay" class="mt-1 text-[10px] text-gray-500 dark:text-gray-400">
-          💳 {{ t('admin.accounts.aiCreditsBalance') }}: {{ aiCreditsDisplay }}
+        <div v-if="aiCreditsDisplay" class="mt-1 flex items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400">
+          <Icon name="creditCard" size="xs" />
+          <span>{{ t('admin.accounts.aiCreditsBalance') }}: {{ aiCreditsDisplay }}</span>
         </div>
       </div>
-      <div v-else-if="aiCreditsDisplay" class="text-[10px] text-gray-500 dark:text-gray-400">
-        💳 {{ t('admin.accounts.aiCreditsBalance') }}: {{ aiCreditsDisplay }}
+      <div v-else-if="aiCreditsDisplay" class="flex items-center gap-1 text-[10px] text-gray-500 dark:text-gray-400">
+        <Icon name="creditCard" size="xs" />
+        <span>{{ t('admin.accounts.aiCreditsBalance') }}: {{ aiCreditsDisplay }}</span>
       </div>
       <div v-else class="text-xs text-gray-400">-</div>
     </template>
@@ -630,6 +632,7 @@ import type { Account, AccountUsageInfo, GeminiCredentials, WindowStats } from '
 import { buildOpenAIUsageRefreshKey } from '@/utils/accountUsageRefresh'
 import { enqueueUsageRequest } from '@/utils/usageLoadQueue'
 import { formatCompactNumber, formatRelativeTime } from '@/utils/format'
+import Icon from '@/components/icons/Icon.vue'
 import UsageProgressBar from './UsageProgressBar.vue'
 import AccountQuotaInfo from './AccountQuotaInfo.vue'
 import OpenAIQuotaResetCell from './OpenAIQuotaResetCell.vue'
