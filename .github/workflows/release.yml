@@ -1,3 +1,4 @@
+# Private-fork release workflow. Keep this file on the fork's default branch.
 name: Release
 
 on:
